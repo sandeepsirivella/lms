@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple LMS</title>
+</head>
+<body>
+    <h1>Learning Management System</h1>
+
+    <h2>Available Courses</h2>
+    <ul>
+        {% for course in courses %}
+            <li>{{ course }} - <a href="/enroll/{{ course }}">Enroll</a></li>
+        {% endfor %}
+    </ul>
+
+    <h2>Add a New Course</h2>
+    <form action="/add" method="post">
+        <input type="text" name="course" placeholder="Course name" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <h2>Enrolled Courses</h2>
+    <ul>
+        {% for c in enrolled %}
+            <li>{{ c }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
